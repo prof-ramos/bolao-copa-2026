@@ -190,12 +190,6 @@
     background: linear-gradient(to bottom, var(--color-primary), var(--color-gold));
     border-radius: 4px 0 0 4px;
   }
-  .match-card.knockout::before {
-    background: linear-gradient(to bottom, var(--color-gold), #ff8c00);
-  }
-  .match-card.final-card::before {
-    background: linear-gradient(to bottom, #f0c000, #ff6b00, #e01010);
-  }
 
   .match-meta {
     display: flex; align-items: center; justify-content: space-between;
@@ -216,8 +210,6 @@
     border-radius: 999px; background: var(--color-input-bg);
     color: var(--color-text-muted); border: 1px solid var(--color-input-border);
   }
-  .match-stage.knockout { color: var(--color-gold-dark); border-color: rgba(240,192,0,0.3); background: rgba(240,192,0,0.08); }
-  .match-stage.final { color: #ff6b00; border-color: rgba(255,107,0,0.3); background: rgba(255,107,0,0.08); }
 
   /* ============================================
      SCORE ROW - MOBILE-FIRST (COLUNA VERTICAL)
@@ -291,121 +283,6 @@
     flex-wrap: wrap;
   }
   .stadium-info svg { flex-shrink: 0; color: var(--color-text-faint); }
-
-  /* ============================================
-     KNOCKOUT OPPONENT DROPDOWN - MOBILE-FIRST
-     ============================================ */
-  .opponent-input-wrap {
-    display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
-    width: 100%;
-  }
-  .opponent-select {
-    position: relative;
-    width: 100%;
-  }
-  .opponent-flag-btn {
-    width: 100%;
-    min-width: 80px;
-    max-width: 120px;
-    height: 44px;
-    background: var(--color-input-bg);
-    border: 1.5px dashed var(--color-input-border);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: border-color var(--transition), border-style var(--transition);
-    margin: 0 auto;
-  }
-  .opponent-flag-btn:hover, .opponent-flag-btn:focus {
-    border-color: var(--color-primary);
-    border-style: solid;
-  }
-  .selected-flag { line-height: 1; }
-  .opponent-dropdown {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    width: calc(100vw - 2rem);
-    max-width: 320px;
-    max-height: 70vh;
-    overflow: hidden;
-    display: none;
-    z-index: 1000;
-  }
-  .opponent-dropdown.open {
-    display: flex;
-    flex-direction: column;
-  }
-  .dropdown-search {
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--color-border);
-    background: var(--color-surface);
-    flex-shrink: 0;
-  }
-  .dropdown-search-input {
-    width: 100%; padding: 0.6rem;
-    background: var(--color-input-bg); border: 1px solid var(--color-input-border);
-    border-radius: var(--radius-md); font-size: 0.85rem;
-    color: var(--color-text);
-    outline: none;
-    min-height: 44px;
-  }
-  .dropdown-search-input:focus { border-color: var(--color-primary); }
-  .dropdown-options {
-    overflow-y: auto;
-    flex: 1;
-    padding: 0.5rem 0;
-    -webkit-overflow-scrolling: touch;
-  }
-  .dropdown-option {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.65rem 0.85rem; cursor: pointer;
-    transition: background var(--transition);
-    min-height: 44px;
-  }
-  .dropdown-option:hover, .dropdown-option:focus { background: var(--color-surface-2); outline: none; }
-  .dropdown-option.selected { background: var(--color-input-bg); }
-  .option-flag { font-size: 1.3rem; }
-  .option-name { font-size: 0.85rem; color: var(--color-text); }
-  .opp-name-display {
-    width: 100%;
-    text-align: center;
-    font-size: 0.6rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.05em;
-    color: var(--color-text);
-    padding: 0.1rem 0;
-    border-bottom: 1px dashed var(--color-input-border);
-    min-height: 1rem;
-    max-width: 120px;
-    margin: 0 auto;
-  }
-  .opp-name-display:empty::before { content: 'Adversário'; color: var(--color-text-faint); }
-
-  /* Dropdown backdrop for mobile */
-  .dropdown-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
-  }
-  .dropdown-backdrop.open {
-    display: block;
-  }
-
-  /* TOOLTIP */
-  .tiebreaker-note {
-    font-size: 0.65rem; color: var(--color-text-faint); text-align: center;
-    margin-top: 0.4rem; font-style: italic;
-  }
 
   /* ============================================
      BUTTONS - MOBILE-FIRST (FULL-WIDTH)
@@ -607,49 +484,11 @@
     .score-separator { font-size: 1.6rem; }
     .vs-label { font-size: 0.6rem; }
 
-    /* Opponent dropdown: volta ao position absolute */
-    .opponent-input-wrap {
-      width: auto;
-    }
-    .opponent-select {
-      width: auto;
-    }
-    .opponent-flag-btn {
-      width: 52px;
-      max-width: 52px;
-      height: 36px;
-    }
-    .opponent-dropdown {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 220px;
-      max-height: 300px;
-    }
-    .opp-name-display {
-      width: 90px;
-      max-width: 90px;
-      font-size: 0.65rem;
-    }
-    .dropdown-option {
-      padding: 0.5rem 0.75rem;
-      min-height: auto;
-    }
-    .option-name { font-size: 0.75rem; }
-    .dropdown-search-input {
-      padding: 0.5rem;
-      font-size: 0.75rem;
-      min-height: auto;
-    }
-
     .stadium-info {
       margin-top: 0.85rem;
       padding-top: 0.75rem;
       font-size: 0.72rem;
     }
-
-    .tiebreaker-note { font-size: 0.7rem; }
 
     .print-btn {
       font-size: 0.875rem;
@@ -677,8 +516,6 @@
     .score-input { height: 48px; min-height: 48px; }
     .print-btn { padding: 0.75rem 1.25rem; min-height: 48px; }
     .theme-toggle { width: 44px; height: 44px; }
-    .dropdown-option { min-height: 48px; }
-    .dropdown-search-input { min-height: 48px; }
   }
 
   /* PRINT STYLES */
@@ -692,7 +529,7 @@
       padding: 0;
     }
     
-    .theme-toggle, .print-btn, .btn-row, .toast-notification, .opponent-dropdown, .dropdown-backdrop { display: none !important; }
+    .theme-toggle, .print-btn, .btn-row, .toast-notification { display: none !important; }
     
     header {
       background: #006b2b !important;
@@ -718,11 +555,6 @@
       color: #111 !important;
     }
     
-    .opponent-flag-btn {
-      border: 1.5px solid #333 !important;
-      background: #f9f9f9 !important;
-    }
-    
     .total-bar {
       background: #006b2b !important;
       -webkit-print-color-adjust: exact !important;
@@ -737,14 +569,11 @@
     .stadium-info { display: none !important; }
     .content { padding: 0.5rem !important; }
     .section-title { margin-top: 1rem !important; margin-bottom: 0.75rem !important; }
-    .tiebreaker-note { font-size: 9pt !important; }
     .points-section { padding: 1rem !important; }
   }
 </style>
 </head>
 <body>
-
-<div class="dropdown-backdrop" id="dropdownBackdrop"></div>
 
 <header>
   <button class="theme-toggle" data-theme-toggle aria-label="Alternar tema" type="button">
@@ -884,253 +713,6 @@
     </article>
   </section>
 
-  <!-- FASE MATA-MATA -->
-  <section aria-labelledby="knockout-phase-title">
-    <h2 id="knockout-phase-title" class="section-title" style="margin-top:1.5rem">Mata-Mato</h2>
-
-    <!-- Playoff -->
-    <article class="match-card knockout" id="k1" aria-labelledby="k1-title">
-      <h3 id="k1-title" class="visually-hidden">Playoffs (Avos de Final) - 29 de Junho</h3>
-      <div class="match-meta">
-        <div class="match-date">
-          <span>Seg, 29 Jun 2026</span>
-          <span class="dot" aria-hidden="true">●</span>
-          <span>14h</span>
-        </div>
-        <span class="match-stage knockout">Playoffs</span>
-      </div>
-      <fieldset class="score-row">
-        <legend class="visually-hidden">Palpite para Brasil vs Adversário a definir</legend>
-        <div class="team">
-          <span class="team-flag" aria-hidden="true">🇧🇷</span>
-          <span class="team-name brazil">Brasil</span>
-        </div>
-        <div class="vs-block">
-          <div class="score-inputs">
-            <label for="k1-home" class="visually-hidden">Gols do Brasil</label>
-            <input type="number" id="k1-home" class="score-input" min="0" max="99" placeholder="–" data-team="home" data-game="k1" aria-label="Gols do Brasil">
-            <span class="score-separator" aria-hidden="true">×</span>
-            <label for="k1-away" class="visually-hidden">Gols do adversário</label>
-            <input type="number" id="k1-away" class="score-input" min="0" max="99" placeholder="–" data-team="away" data-game="k1" aria-label="Gols do adversário">
-          </div>
-          <span class="vs-label">Seu palpite</span>
-        </div>
-        <div class="team opponent-input-wrap">
-          <div class="opponent-select">
-            <button type="button" class="opponent-flag-btn" aria-label="Selecionar adversário" data-game="k1">
-              <span class="selected-flag">🏳️</span>
-            </button>
-            <div class="opponent-dropdown" role="listbox" aria-label="Lista de países">
-              <div class="dropdown-search">
-                <input type="text" class="dropdown-search-input" placeholder="Buscar país..." aria-label="Buscar país">
-              </div>
-              <div class="dropdown-options"></div>
-            </div>
-          </div>
-          <span class="opp-name-display" data-game="k1"></span>
-        </div>
-      </fieldset>
-      <div class="stadium-info">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>NRG Stadium · Houston, TX</span>
-      </div>
-    </article>
-
-    <!-- Oitavas -->
-    <article class="match-card knockout" id="k2" aria-labelledby="k2-title">
-      <h3 id="k2-title" class="visually-hidden">Oitavas de Final - 5 de Julho</h3>
-      <div class="match-meta">
-        <div class="match-date">
-          <span>Dom, 5 Jul 2026</span>
-          <span class="dot" aria-hidden="true">●</span>
-          <span>17h</span>
-        </div>
-        <span class="match-stage knockout">Oitavas</span>
-      </div>
-      <fieldset class="score-row">
-        <legend class="visually-hidden">Palpite para Brasil vs Adversário a definir</legend>
-        <div class="team">
-          <span class="team-flag" aria-hidden="true">🇧🇷</span>
-          <span class="team-name brazil">Brasil</span>
-        </div>
-        <div class="vs-block">
-          <div class="score-inputs">
-            <label for="k2-home" class="visually-hidden">Gols do Brasil</label>
-            <input type="number" id="k2-home" class="score-input" min="0" max="99" placeholder="–" data-team="home" data-game="k2" aria-label="Gols do Brasil">
-            <span class="score-separator" aria-hidden="true">×</span>
-            <label for="k2-away" class="visually-hidden">Gols do adversário</label>
-            <input type="number" id="k2-away" class="score-input" min="0" max="99" placeholder="–" data-team="away" data-game="k2" aria-label="Gols do adversário">
-          </div>
-          <span class="vs-label">Seu palpite</span>
-        </div>
-        <div class="team opponent-input-wrap">
-          <div class="opponent-select">
-            <button type="button" class="opponent-flag-btn" aria-label="Selecionar adversário" data-game="k2">
-              <span class="selected-flag">🏳️</span>
-            </button>
-            <div class="opponent-dropdown" role="listbox" aria-label="Lista de países">
-              <div class="dropdown-search">
-                <input type="text" class="dropdown-search-input" placeholder="Buscar país..." aria-label="Buscar país">
-              </div>
-              <div class="dropdown-options"></div>
-            </div>
-          </div>
-          <span class="opp-name-display" data-game="k2"></span>
-        </div>
-      </fieldset>
-      <div class="stadium-info">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>MetLife Stadium · Nova Jersey</span>
-      </div>
-    </article>
-
-    <!-- Quartas -->
-    <article class="match-card knockout" id="k3" aria-labelledby="k3-title">
-      <h3 id="k3-title" class="visually-hidden">Quartas de Final - 11 de Julho</h3>
-      <div class="match-meta">
-        <div class="match-date">
-          <span>Sáb, 11 Jul 2026</span>
-          <span class="dot" aria-hidden="true">●</span>
-          <span>18h</span>
-        </div>
-        <span class="match-stage knockout">Quartas</span>
-      </div>
-      <fieldset class="score-row">
-        <legend class="visually-hidden">Palpite para Brasil vs Adversário a definir</legend>
-        <div class="team">
-          <span class="team-flag" aria-hidden="true">🇧🇷</span>
-          <span class="team-name brazil">Brasil</span>
-        </div>
-        <div class="vs-block">
-          <div class="score-inputs">
-            <label for="k3-home" class="visually-hidden">Gols do Brasil</label>
-            <input type="number" id="k3-home" class="score-input" min="0" max="99" placeholder="–" data-team="home" data-game="k3" aria-label="Gols do Brasil">
-            <span class="score-separator" aria-hidden="true">×</span>
-            <label for="k3-away" class="visually-hidden">Gols do adversário</label>
-            <input type="number" id="k3-away" class="score-input" min="0" max="99" placeholder="–" data-team="away" data-game="k3" aria-label="Gols do adversário">
-          </div>
-          <span class="vs-label">Seu palpite</span>
-        </div>
-        <div class="team opponent-input-wrap">
-          <div class="opponent-select">
-            <button type="button" class="opponent-flag-btn" aria-label="Selecionar adversário" data-game="k3">
-              <span class="selected-flag">🏳️</span>
-            </button>
-            <div class="opponent-dropdown" role="listbox" aria-label="Lista de países">
-              <div class="dropdown-search">
-                <input type="text" class="dropdown-search-input" placeholder="Buscar país..." aria-label="Buscar país">
-              </div>
-              <div class="dropdown-options"></div>
-            </div>
-          </div>
-          <span class="opp-name-display" data-game="k3"></span>
-        </div>
-      </fieldset>
-      <div class="stadium-info">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>Hard Rock Stadium · Miami</span>
-      </div>
-    </article>
-
-    <!-- Semis -->
-    <article class="match-card knockout" id="k4" aria-labelledby="k4-title">
-      <h3 id="k4-title" class="visually-hidden">Semifinal - 15 de Julho</h3>
-      <div class="match-meta">
-        <div class="match-date">
-          <span>Qua, 15 Jul 2026</span>
-          <span class="dot" aria-hidden="true">●</span>
-          <span>16h</span>
-        </div>
-        <span class="match-stage knockout">Semifinal</span>
-      </div>
-      <fieldset class="score-row">
-        <legend class="visually-hidden">Palpite para Brasil vs Adversário a definir</legend>
-        <div class="team">
-          <span class="team-flag" aria-hidden="true">🇧🇷</span>
-          <span class="team-name brazil">Brasil</span>
-        </div>
-        <div class="vs-block">
-          <div class="score-inputs">
-            <label for="k4-home" class="visually-hidden">Gols do Brasil</label>
-            <input type="number" id="k4-home" class="score-input" min="0" max="99" placeholder="–" data-team="home" data-game="k4" aria-label="Gols do Brasil">
-            <span class="score-separator" aria-hidden="true">×</span>
-            <label for="k4-away" class="visually-hidden">Gols do adversário</label>
-            <input type="number" id="k4-away" class="score-input" min="0" max="99" placeholder="–" data-team="away" data-game="k4" aria-label="Gols do adversário">
-          </div>
-          <span class="vs-label">Seu palpite</span>
-        </div>
-        <div class="team opponent-input-wrap">
-          <div class="opponent-select">
-            <button type="button" class="opponent-flag-btn" aria-label="Selecionar adversário" data-game="k4">
-              <span class="selected-flag">🏳️</span>
-            </button>
-            <div class="opponent-dropdown" role="listbox" aria-label="Lista de países">
-              <div class="dropdown-search">
-                <input type="text" class="dropdown-search-input" placeholder="Buscar país..." aria-label="Buscar país">
-              </div>
-              <div class="dropdown-options"></div>
-            </div>
-          </div>
-          <span class="opp-name-display" data-game="k4"></span>
-        </div>
-      </fieldset>
-      <div class="stadium-info">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>Mercedes-Benz Stadium · Atlanta</span>
-      </div>
-    </article>
-
-    <!-- FINAL -->
-    <article class="match-card final-card" id="k5" aria-labelledby="k5-title">
-      <h3 id="k5-title" class="visually-hidden">Grande Final - 19 de Julho</h3>
-      <div class="match-meta">
-        <div class="match-date">
-          <span>Dom, 19 Jul 2026</span>
-          <span class="dot" aria-hidden="true">●</span>
-          <span>16h</span>
-        </div>
-        <span class="match-stage final">🏆 Final</span>
-      </div>
-      <fieldset class="score-row">
-        <legend class="visually-hidden">Palpite para Brasil vs Adversário a definir</legend>
-        <div class="team">
-          <span class="team-flag" aria-hidden="true">🇧🇷</span>
-          <span class="team-name brazil">Brasil</span>
-        </div>
-        <div class="vs-block">
-          <div class="score-inputs">
-            <label for="k5-home" class="visually-hidden">Gols do Brasil</label>
-            <input type="number" id="k5-home" class="score-input" min="0" max="99" placeholder="–" data-team="home" data-game="k5" aria-label="Gols do Brasil">
-            <span class="score-separator" aria-hidden="true">×</span>
-            <label for="k5-away" class="visually-hidden">Gols do adversário</label>
-            <input type="number" id="k5-away" class="score-input" min="0" max="99" placeholder="–" data-team="away" data-game="k5" aria-label="Gols do adversário">
-          </div>
-          <span class="vs-label">Seu palpite</span>
-        </div>
-        <div class="team opponent-input-wrap">
-          <div class="opponent-select">
-            <button type="button" class="opponent-flag-btn" aria-label="Selecionar adversário" data-game="k5">
-              <span class="selected-flag">🏳️</span>
-            </button>
-            <div class="opponent-dropdown" role="listbox" aria-label="Lista de países">
-              <div class="dropdown-search">
-                <input type="text" class="dropdown-search-input" placeholder="Buscar país..." aria-label="Buscar país">
-              </div>
-              <div class="dropdown-options"></div>
-            </div>
-          </div>
-          <span class="opp-name-display" data-game="k5"></span>
-        </div>
-      </fieldset>
-      <div class="stadium-info">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        <span>MetLife Stadium · East Rutherford, NJ</span>
-      </div>
-    </article>
-  </section>
-
-  <p class="tiebreaker-note">* Nas fases eliminatórias, em caso de empate nos palpites de 90 min, considerar prorrogação/pênaltis separadamente.</p>
-
   <!-- PONTUAÇÃO -->
   <section aria-labelledby="points-title">
     <h2 id="points-title" class="section-title" style="margin-top:1.5rem">Pontuação</h2>
@@ -1139,14 +721,10 @@
       <div class="points-grid">
         <div class="points-item"><span class="points-label">Resultado correto (V/E/D)</span><span class="points-val">1 pt</span></div>
         <div class="points-item"><span class="points-label">Placar exato</span><span class="points-val">3 pts</span></div>
-        <div class="points-item"><span class="points-label">Resultado (mata-mata)</span><span class="points-val">2 pts</span></div>
-        <div class="points-item"><span class="points-label">Placar exato (mata-mata)</span><span class="points-val">5 pts</span></div>
-        <div class="points-item"><span class="points-label">Semifinal correto</span><span class="points-val">6 pts</span></div>
-        <div class="points-item"><span class="points-label">Campeão correto</span><span class="points-val">10 pts</span></div>
       </div>
       <div class="total-bar">
         <span class="total-label">Pontos Possíveis</span>
-        <span class="total-score">58 pts</span>
+        <span class="total-score">9 pts</span>
       </div>
     </div>
   </section>
@@ -1161,9 +739,9 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
       Salvar como Imagem
     </button>
-    <button class="print-btn gold" type="button" onclick="copyShareLink()" aria-label="Copiar link de compartilhamento">
+    <button class="print-btn gold" type="button" onclick="shareBolao()" aria-label="Compartilhar palpites">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      Compartilhar Link
+      Compartilhar
     </button>
     <button class="print-btn secondary" type="button" onclick="clearAll()" aria-label="Limpar todos os palpites">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
@@ -1175,80 +753,8 @@
 
 <script>
   // ==================== CONFIGURAÇÃO ====================
-  const STORAGE_KEY = 'bolao_copa_2026_v2';
+  const STORAGE_KEY = 'bolao_copa_2026_v3';
   
-  // Lista de países prováveis da Copa 2026
-  const COUNTRIES = [
-    { flag: '🇦🇷', name: 'Argentina' },
-    { flag: '🇦🇺', name: 'Austrália' },
-    { flag: '🇦🇹', name: 'Áustria' },
-    { flag: '🇧🇪', name: 'Bélgica' },
-    { flag: '🇧🇴', name: 'Bolívia' },
-    { flag: '🇨🇲', name: 'Camarões' },
-    { flag: '🇨🇦', name: 'Canadá' },
-    { flag: '🇨🇱', name: 'Chile' },
-    { flag: '🇨🇴', name: 'Colômbia' },
-    { flag: '🇨🇷', name: 'Costa Rica' },
-    { flag: '🇭🇷', name: 'Croácia' },
-    { flag: '🇩🇰', name: 'Dinamarca' },
-    { flag: '🇪🇨', name: 'Equador' },
-    { flag: '🇸🇰', name: 'Eslováquia' },
-    { flag: '🇸🇮', name: 'Eslovênia' },
-    { flag: '🇪🇸', name: 'Espanha' },
-    { flag: '🇺🇸', name: 'Estados Unidos' },
-    { flag: '🇫🇷', name: 'França' },
-    { flag: '🇬🇷', name: 'Grécia' },
-    { flag: '🇳🇱', name: 'Holanda' },
-    { flag: '🇭🇺', name: 'Hungria' },
-    { flag: '🇮🇪', name: 'Irlanda' },
-    { flag: '🇮🇸', name: 'Islândia' },
-    { flag: '🇮🇱', name: 'Israel' },
-    { flag: '🇮🇹', name: 'Itália' },
-    { flag: '🇯🇵', name: 'Japão' },
-    { flag: '🇲🇽', name: 'México' },
-    { flag: '🇳🇬', name: 'Nigéria' },
-    { flag: '🇳🇴', name: 'Noruega' },
-    { flag: '🇳🇿', name: 'Nova Zelândia' },
-    { flag: '🇵🇾', name: 'Paraguai' },
-    { flag: '🇵🇪', name: 'Peru' },
-    { flag: '🇵🇱', name: 'Polônia' },
-    { flag: '🇵🇹', name: 'Portugal' },
-    { flag: '🇨🇿', name: 'República Tcheca' },
-    { flag: '🇬🇧', name: 'Inglaterra' },
-    { flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', name: 'Escócia' },
-    { flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿', name: 'País de Gales' },
-    { flag: '🇷🇴', name: 'Romênia' },
-    { flag: '🇷🇸', name: 'Sérvia' },
-    { flag: '🇸🇪', name: 'Suécia' },
-    { flag: '🇨🇭', name: 'Suíça' },
-    { flag: '🇹🇷', name: 'Turquia' },
-    { flag: '🇺🇾', name: 'Uruguai' },
-    { flag: '🇻🇪', name: 'Venezuela' },
-    { flag: '🇰🇷', name: 'Coreia do Sul' },
-    { flag: '🇸🇳', name: 'Senegal' },
-    { flag: '🇬🇭', name: 'Gana' },
-    { flag: '🇪🇬', name: 'Egito' },
-    { flag: '🇲🇦', name: 'Marrocos' },
-    { flag: '🇹🇳', name: 'Tunísia' },
-    { flag: '🇮🇷', name: 'Irã' },
-    { flag: '🇸🇦', name: 'Arábia Saudita' },
-    { flag: '🇦🇪', name: 'Emirados Árabes' },
-    { flag: '🇶🇦', name: 'Catar' },
-    { flag: '🇨🇳', name: 'China' },
-    { flag: '🇮🇳', name: 'Índia' },
-    { flag: '🇮🇩', name: 'Indonésia' },
-    { flag: '🇹🇭', name: 'Tailândia' },
-    { flag: '🇻🇳', name: 'Vietnã' },
-    { flag: '🇵🇦', name: 'Panamá' },
-    { flag: '🇯🇲', name: 'Jamaica' },
-    { flag: '🇭🇳', name: 'Honduras' },
-    { flag: '🇸🇻', name: 'El Salvador' },
-    { flag: '🇬🇹', name: 'Guatemala' },
-    { flag: '🇨🇺', name: 'Cuba' },
-    { flag: '🇩🇴', name: 'Rep. Dominicana' },
-    { flag: '🇹🇹', name: 'Trinidad e Tobago' }
-  ].sort((a, b) => a.name.localeCompare(b.name));
-
   // ==================== UTILITÁRIOS ====================
   
   // Debounce helper
@@ -1276,36 +782,35 @@
 
   // ==================== PERSISTÊNCIA LOCALSTORAGE ====================
   
-  // Coletar todos os dados do formulário
+  // Coletar todos os dados do formulário (apenas fase de grupos)
   function collectData() {
     const data = {
       participantName: document.getElementById('participantName').value,
       scores: {},
-      opponents: {},
       timestamp: new Date().toISOString()
     };
     
-    // Coletar scores
+    // Coletar apenas scores dos jogos de grupo (g1, g2, g3)
     document.querySelectorAll('.score-input').forEach(input => {
       const game = input.dataset.game;
       const team = input.dataset.team;
-      if (!data.scores[game]) data.scores[game] = {};
-      if (input.value) data.scores[game][team] = input.value;
-    });
-    
-    // Coletar adversários do mata-mata
-    document.querySelectorAll('.opponent-select').forEach(select => {
-      const gameId = select.querySelector('.opponent-flag-btn').dataset.game;
-      const flagSpan = select.querySelector('.selected-flag');
-      const nameDisplay = document.querySelector(`.opp-name-display[data-game="${gameId}"]`);
-      
-      data.opponents[gameId] = {
-        flag: flagSpan.textContent,
-        name: nameDisplay.textContent
-      };
+      // Só incluir jogos de grupo (g1, g2, g3)
+      if (game.startsWith('g')) {
+        if (!data.scores[game]) data.scores[game] = {};
+        if (input.value) data.scores[game][team] = input.value;
+      }
     });
     
     return data;
+  }
+
+  // Verificar se há palpites preenchidos
+  function hasPredictions() {
+    const data = collectData();
+    const hasScores = Object.values(data.scores).some(game => 
+      game.home || game.away
+    );
+    return hasScores || data.participantName.trim() !== '';
   }
 
   // Salvar dados no localStorage
@@ -1337,27 +842,13 @@
         document.getElementById('participantName').value = data.participantName;
       }
       
-      // Restaurar scores
+      // Restaurar scores (apenas jogos de grupo)
       Object.entries(data.scores || {}).forEach(([game, teams]) => {
+        if (!game.startsWith('g')) return; // Ignorar dados antigos de mata-mata
         Object.entries(teams).forEach(([team, value]) => {
           const input = document.querySelector(`[data-game="${game}"][data-team="${team}"]`);
           if (input) input.value = value;
         });
-      });
-      
-      // Restaurar adversários
-      Object.entries(data.opponents || {}).forEach(([gameId, opp]) => {
-        if (!opp) return;
-        
-        const btn = document.querySelector(`.opponent-flag-btn[data-game="${gameId}"]`);
-        const nameDisplay = document.querySelector(`.opp-name-display[data-game="${gameId}"]`);
-        
-        if (btn && opp.flag) {
-          btn.querySelector('.selected-flag').textContent = opp.flag;
-        }
-        if (nameDisplay && opp.name) {
-          nameDisplay.textContent = opp.name;
-        }
       });
       
       return true;
@@ -1389,34 +880,19 @@
         document.getElementById('participantName').value = data.participantName;
       }
       
-      // Restaurar scores
+      // Restaurar scores (apenas jogos de grupo)
       Object.entries(data.scores || {}).forEach(([game, teams]) => {
+        if (!game.startsWith('g')) return;
         Object.entries(teams).forEach(([team, value]) => {
           const input = document.querySelector(`[data-game="${game}"][data-team="${team}"]`);
           if (input) input.value = value;
         });
       });
       
-      // Restaurar adversários
-      Object.entries(data.opponents || {}).forEach(([gameId, opp]) => {
-        if (!opp) return;
-        
-        const btn = document.querySelector(`.opponent-flag-btn[data-game="${gameId}"]`);
-        const nameDisplay = document.querySelector(`.opp-name-display[data-game="${gameId}"]`);
-        
-        if (btn && opp.flag) {
-
-          btn.querySelector('.selected-flag').textContent = opp.flag;
-        }
-        if (nameDisplay && opp.name) {
-          nameDisplay.textContent = opp.name;
-        }
-      });
-      
       // Limpar URL após carregar
       window.history.replaceState({}, document.title, window.location.pathname);
       
-      showToast('✓ Palpites carregados do link!');
+      showToast('✓ Palpites carregados!');
       return true;
     } catch (e) {
       console.error('Erro ao carregar dados da URL:', e);
@@ -1438,17 +914,47 @@
     return `${window.location.origin}${window.location.pathname}?data=${compressed}`;
   }
 
-  // Copiar link para clipboard
-  async function copyShareLink() {
-    const link = generateShareableLink();
+  // Função principal de compartilhamento
+  async function shareBolao() {
+    // Verificar se há palpites preenchidos
+    if (!hasPredictions()) {
+      showToast('⚠️ Preencha seus palpites primeiro!');
+      return;
+    }
     
+    const shareData = {
+      title: 'Bolão Brasil - Copa 2026',
+      text: 'Confira meus palpites para a Copa do Mundo 2026!',
+      url: generateShareableLink()
+    };
+    
+    // Tentar usar Web Share API nativa (mobile)
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+        showToast('✓ Compartilhado com sucesso!');
+      } catch (err) {
+        // Usuário cancelou ou erro
+        if (err.name !== 'AbortError') {
+          // Fallback para clipboard
+          await copyToClipboard(shareData.url);
+        }
+      }
+    } else {
+      // Fallback para clipboard (desktop/navegadores sem suporte)
+      await copyToClipboard(shareData.url);
+    }
+  }
+
+  // Copiar link para clipboard
+  async function copyToClipboard(text) {
     try {
-      await navigator.clipboard.writeText(link);
-      showToast('✓ Link copiado para a área de transferência!');
+      await navigator.clipboard.writeText(text);
+      showToast('✓ Link copiado!');
     } catch (e) {
       // Fallback para navegadores antigos
       const textArea = document.createElement('textarea');
-      textArea.value = link;
+      textArea.value = text;
       textArea.style.position = 'fixed';
       textArea.style.left = '-9999px';
       document.body.appendChild(textArea);
@@ -1462,6 +968,11 @@
       }
       document.body.removeChild(textArea);
     }
+  }
+
+  // Manter função antiga para compatibilidade (redireciona para nova)
+  async function copyShareLink() {
+    await shareBolao();
   }
 
   // ==================== EXPORTAÇÃO COMO IMAGEM ====================
@@ -1500,122 +1011,6 @@
     }
   }
 
-  // ==================== DROPDOWN DE PAÍSES ====================
-  
-  function initOpponentDropdowns() {
-    const backdrop = document.getElementById('dropdownBackdrop');
-    
-    document.querySelectorAll('.opponent-select').forEach(select => {
-      const btn = select.querySelector('.opponent-flag-btn');
-      const dropdown = select.querySelector('.opponent-dropdown');
-      const searchInput = dropdown.querySelector('.dropdown-search-input');
-      const optionsContainer = dropdown.querySelector('.dropdown-options');
-      const gameId = btn.dataset.game;
-      const nameDisplay = document.querySelector(`.opp-name-display[data-game="${gameId}"]`);
-      const flagSpan = btn.querySelector('.selected-flag');
-      
-      // Renderizar opções
-      function renderOptions(filter = '') {
-        const filterLower = filter.toLowerCase().trim();
-        const filtered = filterLower 
-          ? COUNTRIES.filter(c => c.name.toLowerCase().includes(filterLower))
-          : COUNTRIES;
-        
-        optionsContainer.innerHTML = filtered.length > 0
-          ? filtered.map(c => `
-              <div class="dropdown-option" role="option" tabindex="0" data-flag="${c.flag}" data-name="${c.name}">
-                <span class="option-flag">${c.flag}</span>
-                <span class="option-name">${c.name}</span>
-              </div>
-            `).join('')
-          : '<div class="dropdown-option" style="color: var(--color-text-faint); cursor: default;">Nenhum país encontrado</div>';
-        
-        // Click handlers
-        optionsContainer.querySelectorAll('.dropdown-option[data-flag]').forEach(opt => {
-          opt.addEventListener('click', () => selectOption(opt));
-          opt.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              selectOption(opt);
-            }
-          });
-        });
-      }
-      
-      function selectOption(opt) {
-        flagSpan.textContent = opt.dataset.flag;
-        nameDisplay.textContent = opt.dataset.name;
-        closeAllDropdowns();
-        debouncedSave();
-      }
-      
-      function openDropdown() {
-        closeAllDropdowns();
-        dropdown.classList.add('open');
-        backdrop.classList.add('open');
-        searchInput.value = '';
-        searchInput.focus();
-        renderOptions();
-      }
-      
-      function closeDropdown() {
-        dropdown.classList.remove('open');
-        backdrop.classList.remove('open');
-      }
-      
-      // Toggle dropdown
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (dropdown.classList.contains('open')) {
-          closeDropdown();
-        } else {
-          openDropdown();
-        }
-      });
-      
-      // Search filter
-      searchInput.addEventListener('input', (e) => {
-        renderOptions(e.target.value);
-      });
-      
-      // Prevent dropdown close when clicking inside
-      dropdown.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-      
-      // Keyboard navigation
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          openDropdown();
-        }
-      });
-    });
-    
-    // Close on backdrop click
-    backdrop.addEventListener('click', closeAllDropdowns);
-  }
-
-  // Fechar todos os dropdowns
-  function closeAllDropdowns() {
-    document.querySelectorAll('.opponent-dropdown').forEach(d => d.classList.remove('open'));
-    document.getElementById('dropdownBackdrop').classList.remove('open');
-  }
-
-  // Close on outside click (extra safety)
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.opponent-select') && !e.target.closest('.opponent-dropdown')) {
-      closeAllDropdowns();
-    }
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeAllDropdowns();
-    }
-  });
-
   // ==================== LIMPAR TUDO ====================
   
   function clearAll() {
@@ -1623,14 +1018,6 @@
     
     // Limpar inputs de score
     document.querySelectorAll('.score-input').forEach(i => i.value = '');
-    
-    // Limpar dropdowns de adversários
-    document.querySelectorAll('.opponent-flag-btn').forEach(btn => {
-      btn.querySelector('.selected-flag').textContent = '🏳️';
-    });
-    document.querySelectorAll('.opp-name-display').forEach(display => {
-      display.textContent = '';
-    });
     
     // Limpar nome
     document.getElementById('participantName').value = '';
@@ -1689,9 +1076,6 @@
   // ==================== INICIALIZAÇÃO ====================
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar dropdowns
-    initOpponentDropdowns();
-    
     // Tentar carregar da URL primeiro, senão do localStorage
     const loadedFromURL = loadFromURL();
     if (!loadedFromURL) {
@@ -1705,6 +1089,7 @@
   // Expor funções globalmente para os botões
   window.clearAll = clearAll;
   window.exportAsImage = exportAsImage;
+  window.shareBolao = shareBolao;
   window.copyShareLink = copyShareLink;
 </script>
 </body>
