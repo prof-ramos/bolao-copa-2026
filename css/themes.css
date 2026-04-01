@@ -1,0 +1,81 @@
+/**
+ * Theme Styles
+ * Bolão Brasil Copa 2026
+ */
+
+/* Dark theme (default) */
+[data-theme="dark"] {
+  --color-bg: #0d150d;
+  --color-surface: #152015;
+  --color-surface-2: #1c2d1c;
+  --color-border: rgba(255,255,255,0.08);
+  --color-text: #e0ede0;
+  --color-text-muted: #8aaa84;
+  --color-text-faint: #4a634a;
+  --color-primary: #3daa60;
+  --color-primary-hover: #2d8a4a;
+  --color-gold: #f0c000;
+  --color-gold-dark: #d4a800;
+  --color-input-bg: #1a2e1a;
+  --color-input-border: #2a4a2a;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+/* System preference for dark mode */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #0d150d;
+    --color-surface: #152015;
+    --color-surface-2: #1c2d1c;
+    --color-border: rgba(255,255,255,0.08);
+    --color-text: #e0ede0;
+    --color-text-muted: #8aaa84;
+    --color-text-faint: #4a634a;
+    --color-primary: #3daa60;
+    --color-primary-hover: #2d8a4a;
+    --color-gold: #f0c000;
+    --color-gold-dark: #d4a800;
+    --color-input-bg: #1a2e1a;
+    --color-input-border: #2a4a2a;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}

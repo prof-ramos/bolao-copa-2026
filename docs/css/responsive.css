@@ -1,0 +1,215 @@
+/**
+ * Responsive Styles
+ * Mobile-first with progressive enhancement
+ * Bolão Brasil Copa 2026
+ */
+
+/* ============================================
+   MEDIA QUERY: TABLET (481px+)
+   ============================================ */
+@media (min-width: 481px) {
+  header {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  
+  .header-flag {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+  }
+  
+  .content {
+    padding: 1.25rem;
+  }
+  
+  .match-card {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+  }
+  
+  .match-meta {
+    gap: 0.3rem;
+    margin-bottom: 0.85rem;
+  }
+  
+  .match-date {
+    font-size: 0.7rem;
+  }
+  
+  .match-stage {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .stadium-info {
+    font-size: 0.65rem;
+  }
+  
+  /* Points grid: 2 columns */
+  .points-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .points-section {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .points-title {
+    font-size: 1.1rem;
+  }
+  
+  .points-item {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
+  
+  /* Total bar: side by side */
+  .total-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+  
+  .total-label {
+    font-size: 1.1rem;
+  }
+  
+  .total-score {
+    font-size: 2.5rem;
+  }
+  
+  /* Buttons: side by side */
+  .btn-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .print-btn {
+    width: auto;
+  }
+}
+
+/* ============================================
+   MEDIA QUERY: DESKTOP (769px+)
+   ============================================ */
+@media (min-width: 769px) {
+  header {
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  
+  .header-flag {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .match-card {
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-xl);
+  }
+  
+  .match-meta {
+    margin-bottom: 1rem;
+  }
+  
+  /* Score row: horizontal layout (desktop original) */
+  .score-row {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  
+  .team {
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+  
+  .team-flag {
+    font-size: 2.2rem;
+  }
+  
+  .team-name {
+    font-size: 0.75rem;
+  }
+  
+  .vs-block {
+    width: auto;
+    gap: 0.35rem;
+  }
+  
+  .score-inputs {
+    gap: 0.3rem;
+  }
+  
+  .score-input {
+    width: 44px;
+    height: 52px;
+    font-size: 1.8rem;
+  }
+  
+  .score-separator {
+    font-size: 1.6rem;
+  }
+  
+  .vs-label {
+    font-size: 0.6rem;
+  }
+  
+  .stadium-info {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    font-size: 0.72rem;
+  }
+  
+  .print-btn {
+    font-size: 0.875rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+  }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE (low height)
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    padding: 0.75rem;
+  }
+  
+  .header-flag {
+    font-size: 1.5rem;
+    margin-bottom: 0.15rem;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .header-sub {
+    font-size: 0.65rem;
+    margin-top: 0.2rem;
+  }
+  
+  .name-section {
+    margin-top: 0.5rem;
+  }
+  
+  .score-row {
+    gap: 0.4rem;
+  }
+}

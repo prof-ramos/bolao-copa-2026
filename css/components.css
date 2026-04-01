@@ -1,0 +1,446 @@
+/**
+ * Component Styles
+ * Bolão Brasil Copa 2026
+ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+header {
+  background: linear-gradient(160deg, #003d1a 0%, #006b2b 55%, #004d20 100%);
+  padding: 1.5rem 1rem 1.25rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3Cline x1='30' y1='10' x2='30' y2='50'/%3E%3Cline x1='10' y1='30' x2='50' y2='30'/%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(240,192,0,0.15);
+  border: 1px solid rgba(240,192,0,0.3);
+  color: var(--color-gold);
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 6vw, 4rem);
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+header h1 span {
+  color: var(--color-gold);
+}
+
+.header-flag {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.header-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   MATCH CARD
+   ============================================ */
+.match-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 0.875rem;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.match-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.match-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-gold));
+  border-radius: 4px 0 0 4px;
+}
+
+.match-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.match-date {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+  flex: 1;
+  min-width: 0;
+}
+
+.match-date .dot {
+  color: var(--color-primary);
+  font-size: 0.5rem;
+}
+
+.match-stage {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-input-bg);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-input-border);
+}
+
+/* ============================================
+   SCORE ROW - MOBILE-FIRST (VERTICAL)
+   ============================================ */
+.score-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.team-flag {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.team-name {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.team-name.brazil {
+  color: var(--color-primary);
+}
+
+.vs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.score-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.score-input {
+  width: 48px;
+  height: 48px;
+  background: var(--color-input-bg);
+  border: 2px solid var(--color-input-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  text-align: center;
+  outline: none;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  -moz-appearance: textfield;
+  appearance: textfield;
+  min-height: 44px; /* Touch-friendly */
+}
+
+.score-input::-webkit-outer-spin-button,
+.score-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.score-input:focus {
+  border-color: var(--color-primary);
+  background: var(--color-surface-2);
+  box-shadow: 0 0 0 3px rgba(61,170,96,0.15);
+}
+
+.score-input:focus-visible {
+  outline: 3px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px rgba(61,170,96,0.2) !important;
+}
+
+.score-separator {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-text-faint);
+  padding: 0 0.1rem;
+}
+
+.vs-label {
+  font-size: 0.55rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+}
+
+/* ============================================
+   STADIUM INFO
+   ============================================ */
+.stadium-info {
+  margin-top: 0.65rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6rem;
+  color: var(--color-text-faint);
+  flex-wrap: wrap;
+}
+
+.stadium-info svg {
+  flex-shrink: 0;
+  color: var(--color-text-faint);
+}
+
+/* ============================================
+   POINTS SECTION
+   ============================================ */
+.points-section {
+  margin-top: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.points-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  margin-bottom: 0.6rem;
+}
+
+.points-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+}
+
+.points-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  padding: 0.5rem 0.6rem;
+  background: var(--color-input-bg);
+  border-radius: var(--radius-md);
+}
+
+.points-label {
+  color: var(--color-text-muted);
+}
+
+.points-val {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ============================================
+   TOTAL BAR
+   ============================================ */
+.total-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1rem;
+  margin-top: 0.85rem;
+  box-shadow: 0 4px 16px rgba(0,107,43,0.3);
+  text-align: center;
+}
+
+.total-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.8);
+}
+
+.total-score {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.print-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 16px rgba(0,107,43,0.3);
+  min-height: 44px;
+}
+
+.print-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,107,43,0.35);
+}
+
+.print-btn:active {
+  transform: translateY(0);
+}
+
+.print-btn.secondary {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  box-shadow: none;
+  border: 1px solid var(--color-border);
+}
+
+.print-btn.secondary:hover {
+  background: var(--color-input-bg);
+  transform: translateY(-2px);
+}
+
+.print-btn.gold {
+  background: var(--color-gold-dark);
+}
+
+.print-btn.gold:hover {
+  background: #b8860b;
+}
+
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  z-index: 9999;
+  box-shadow: var(--shadow-md);
+  animation: slideUp 0.3s ease, fadeOut 0.3s ease 1.7s forwards;
+  font-weight: 500;
+  max-width: calc(100vw - 2rem);
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .score-input {
+    height: 48px;
+    min-height: 48px;
+  }
+  .print-btn {
+    padding: 0.75rem 1.25rem;
+    min-height: 48px;
+  }
+}

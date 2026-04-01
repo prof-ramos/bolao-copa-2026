@@ -1,0 +1,87 @@
+/**
+ * Print Styles
+ * Bolão Brasil Copa 2026
+ */
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  body {
+    background: white !important;
+    color: #111 !important;
+    font-size: 11pt;
+    padding: 0;
+  }
+  
+  .theme-toggle,
+  .print-btn,
+  .btn-row,
+  .toast-notification,
+  .no-print {
+    display: none !important;
+  }
+  
+  header {
+    background: #006b2b !important;
+    padding: 1.5rem 1rem !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  header h1 {
+    font-size: 2rem !important;
+  }
+  
+  .header-badge {
+    border: 1px solid rgba(240,192,0,0.5) !important;
+  }
+  
+  .match-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .match-card:hover {
+    transform: none !important;
+  }
+  
+  .score-input {
+    border: 2px solid #333 !important;
+    background: #f9f9f9 !important;
+    color: #111 !important;
+  }
+  
+  .total-bar {
+    background: #006b2b !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+  
+  .stadium-info {
+    display: none !important;
+  }
+  
+  .content {
+    padding: 0.5rem !important;
+  }
+  
+  .section-title {
+    margin-top: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .points-section {
+    padding: 1rem !important;
+  }
+}

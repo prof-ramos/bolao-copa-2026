@@ -1,0 +1,115 @@
+/**
+ * Base Styles - Reset and Typography
+ * Bolão Brasil Copa 2026
+ */
+
+/* Box sizing and reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML and body */
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  padding: 0 0 3rem;
+}
+
+/* Accessibility utilities */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 3px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Content wrapper */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Section titles */
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Name section */
+.name-section {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.name-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.name-input-wrap input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  flex: 1;
+  text-align: center;
+}
+
+.name-input-wrap input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.name-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
