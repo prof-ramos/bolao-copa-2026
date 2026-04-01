@@ -16,6 +16,8 @@ describe('ShareManager', () => {
     };
     // Mock history
     window.history.replaceState = vi.fn();
+    // Mock document
+    document.body.innerHTML = '';
   });
 
   describe('encode', () => {
@@ -142,7 +144,6 @@ describe('ShareManager', () => {
 
   describe('copyToClipboard', () => {
     it('should return true on successful copy', async () => {
-      // Mock clipboard API
       navigator.clipboard = {
         writeText: vi.fn().mockResolvedValue(undefined)
       };
@@ -157,7 +158,6 @@ describe('ShareManager', () => {
       };
       
       const result = await manager.copyToClipboard('test text');
-      // Will use fallback
       expect(typeof result).toBe('boolean');
     });
   });

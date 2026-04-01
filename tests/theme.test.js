@@ -8,9 +8,6 @@ describe('ThemeManager', () => {
     // Clear localStorage
     localStorage.clear();
     
-    // Create new instance for each test
-    manager = new ThemeManager();
-    
     // Mock matchMedia
     window.matchMedia = vi.fn().mockImplementation((query) => ({
       matches: false,
@@ -18,6 +15,12 @@ describe('ThemeManager', () => {
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
     }));
+    
+    // Create new instance for each test
+    manager = new ThemeManager();
+    
+    // Reset document
+    document.body.innerHTML = '';
   });
 
   describe('detectTheme', () => {
@@ -33,7 +36,7 @@ describe('ThemeManager', () => {
       
       // With matchMedia returning false (not dark), it should return 'light'
       const theme = manager.detectTheme();
-      expect(theme).toBe('light'); // Falls back to system preference (not dark)
+      expect(theme).toBe('light');
     });
 
     it('should detect system preference for dark mode', () => {
@@ -54,7 +57,7 @@ describe('ThemeManager', () => {
       localStorage.removeItem('bolao_theme');
       
       window.matchMedia = vi.fn().mockImplementation((query) => ({
-        matches: false, // Not dark mode = light mode
+        matches: false,
         media: query,
         addEventListener: vi.fn(),
         removeEventListener: vi.fn(),
